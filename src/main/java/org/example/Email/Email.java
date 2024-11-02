@@ -1,16 +1,15 @@
 package org.example.Email;
 
-import java.security.PrivateKey;
 import java.util.UUID;
 
 public class Email {
     private  String name;
     private  String department;
-    private  String company_name;
+    private  String companyName;
     private  String password;
 
-public Email(String name,String department,String company_name){
-   this.company_name= company_name;
+public Email(String name,String department,String companyName){
+   this.companyName= companyName;
    this.name=name;
    this.department=department;
    this.password=generatePassword();
@@ -32,12 +31,12 @@ public Email(String name,String department,String company_name){
         this.department = department;
     }
 
-    public String getCompany_name() {
-        return company_name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompany_name(String company_name) {
-        this.company_name = company_name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getPassword() {
@@ -47,21 +46,25 @@ public Email(String name,String department,String company_name){
     public void setPassword(String password) {
         this.password = password;
     }
-    public String generateEmail(String name,String department,String company_name){
-     this.company_name=company_name;
+
+    public String generateEmail(){
+     this.companyName=companyName;
      this.name=name;
      this.department=department;
-      return name+department+"@"+company_name+".com";}
+      return name+department+"@"+companyName+".com";}
 
     public String generatePassword(){
       String random = UUID.randomUUID().toString();
       return random;
     }
    public void printdetails(){
-    System.out.println(getCompany_name());
-    System.out.println(getPassword());
-    System.out.println(getCompany_name());
-    System.out.println(getName());
+    System.out.println("********** welcome to "+ getCompanyName()+" "+"Please find the your email id and details below *******");
+    System.out.println("company name is "+ getCompanyName());
+    System.out.println("Email id "+ generateEmail());
+    System.out.println("password is "+getPassword());
+    System.out.println("department name is "+getDepartment());
+    System.out.println("name is " +getName());
+    System.out.println("Please help to rest the password with help of setpassword");
    }
 
 }
